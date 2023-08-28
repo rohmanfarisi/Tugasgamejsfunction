@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    
+    <script>
+alert (`Selamat datang di game tabak angka.\n kamu diminta untuk menebak angka 1-3 \n dan kamu akan bermain dalam 5 ronde. \n Player yang berhasil mengumpulkan tebakan terbanyak akan menang \n SELAMAT BERMAIN!!`);
+let skorP1 = 0;
+let skorP2 = 0;
+
+let ronde = 1;
+let jeda = true;
+
+while (jeda) {
+    let p1 = parseInt(prompt(`Player 1: Masukkan angka`));
+    let p2 = parseInt(prompt(`Player 2: Masukkan angka`));
+
+    let target = Math.floor(Math.random() * 3) + 1 ;
+    let ulangi = validasi(p1,p2);
+
+    if (!ulangi) {
+        jeda = window.confirm(`ulangi?`)
+    } else{
+        if (p1 !== target && p2 !== target) {
+            alert(`Tidak ada yang benar. Hasil SERI`);
+        } else if (p1 === target) {
+            alert(`Player 1 Win`);
+            skorP1++;
+        } else if (p2 === target) {
+            alert (`Player 2 Win`);
+            skorP2++;
+        }
+
+            alert (`
+            Nilai yang dicari: ${target}
+            ---------------------------
+            - player 1: ${skorP1}
+            - Player 2: ${skorP2}`);
+
+            ronde++;
+            if (ronde <= 5) {
+                jeda = window.confirm(`Ronde ${ronde}?`)
+            } else{
+                if (skorP1 > skorP2) {
+                    alert(`Good Job Player 1`);
+                    jeda = false;
+                } else if (skorP1 < skorP2) {
+                    alert (`Good Job Player 2`);
+                    jeda = false;
+                } else {
+                    alert (`Permainan sangat sengit`)
+                    ronde = 1;
+                    skorP1 = 0;
+                    skorP2 = 0;
+                    jeda = window.confirm(`Mau main lagi?`)
+                }
+            }
+        
+    }
+}
+    
+
+
+
+function validasi (p1,p2) {
+    if (p1 === p2) {
+        alert (`Tebakan tidak boleh sama`);
+        return false;
+    } else {
+        if (p1 < 1 || p2 < 1) {
+            alert(`Tebakan tidak boleh lebih kecil dari 1`);
+            return false
+        } else if (p1 > 3 || p2 > 3) {
+            alert (`Tebakan tidak boleh lebih besar dari 3`);
+            return false;
+        } else if (isNaN(p1) || isNaN(p2)) {
+            alert(`Tebakan tidak boleh kosong`);
+            return false
+        }
+    }
+    return true;
+}
+
+    </script>
+  </body>
+</html>
