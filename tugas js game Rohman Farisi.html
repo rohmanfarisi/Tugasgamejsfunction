@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    
+    <script>
+ let player1Name = prompt("Masukkan nama pemain 1:");
+let player2Name = prompt("Masukkan nama pemain 2:");
+
+let player1Score = 0;
+let player2Score = 0;
+
+function playRound(roundNumber) {
+  let targetNumber = Math.floor(Math.random() * 3) + 1;
+  alert(`Ronde ${roundNumber}: Angka target telah ditentukan antara 1 dan 100. Saatnya tebak, ${player1Name} dan ${player2Name}!`);
+
+  let player1Guess = parseInt(prompt(`${player1Name}, tebak angka: `));
+  let player2Guess = parseInt(prompt(`${player2Name}, tebak angka: `));
+
+  checkGuess(player1Name, player1Guess, targetNumber);
+  checkGuess(player2Name, player2Guess, targetNumber);
+}
+
+function checkGuess(playerName, guess, targetNumber) {
+  if (guess === targetNumber) {
+    alert(`Selamat ${playerName}! Angka ${targetNumber} adalah jawaban yang benar.`);
+    if (playerName === player1Name) {
+      player1Score++;
+    } else {
+      player2Score++;
+    }
+  } else if (guess < targetNumber) {
+    alert(`${playerName}, tebakkanmu terlalu rendah.`);
+  } else {
+    alert(`${playerName}, tebakkanmu terlalu tinggi.`);
+  }
+}
+
+for (let round = 1; round <= 5; round++) {
+  playRound(round);
+}
+
+if (player1Score > player2Score) {
+  alert(`${player1Name} menang dengan skor ${player1Score}-${player2Score}!`);
+} else if (player2Score > player1Score) {
+  alert(`${player2Name} menang dengan skor ${player2Score}-${player1Score}!`);
+} else {
+  alert(`Permainan berakhir imbang dengan skor ${player1Score}-${player2Score}.`);
+}
+
+
+
+
+
+    </script>
+  </body>
+</html>
