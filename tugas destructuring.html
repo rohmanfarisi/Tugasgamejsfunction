@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    
+    <script>
+const listSiswa = [`Angga`, `Budi`, `Cinta`, `Dedi`, `Erlangga`];
+const listProduct = {
+  produk : "Biskuit",
+  merek: "Biskuat",
+  produksi: "Mayora",
+  kadaLuarsa: 2032023,
+  katalog : {
+    konsumsi: "makanan",
+    konsumen: "Anak-anak",
+  }
+};
+
+// //destructuring array
+
+// const siswa1 = listSiswa[0];
+// const siswa2 = listSiswa[1];
+// const siswa3 = listSiswa[2];
+// console.log(siswa1, siswa2, siswa3);
+
+// const [siswaPertama, siswaKedua, siswaKetiga, ...lainnya] = listSiswa;
+// console.log(siswaPertama, siswaKedua, siswaKetiga, lainnya);
+
+////destructuring object
+// const produk = listProduct.produk;
+// const merek = listProduct.merek;
+// console.log (produk, merek);
+
+// const {produk, merek, produksi, kadaLuarsa, katalog: {konsumen}} = listProduct;
+// console.log(produk, merek, produksi, kadaLuarsa, konsumen);
+
+// //destructuring di function parameter
+
+// function perkalian([angka1, angka2]) {
+// const perkalian = angka1*angka2;
+// const pesan = `hasil penjumlahannya adalah ${perkalian}`;
+// console.log (pesan);
+// };
+
+// function printOut({produk, merek, produksi, kadalLuarsa, ...plainnya}) {
+//   const pesan2 = `Jenis produk ini berupa ${produk}, dengan merek ${merek}, yang diproduksi oleh ${produksi}, dan habis pada tanggal ${kadaLuarsa}, info sebagai berikut ${plainnya}`;
+//   console.log(pesan2);
+// }
+
+// perkalian([10, 20])
+// printOut(listProduct);
+
+//destructuring Default Value dan Alias
+function printOut ({produk, merek, produksi, kadaLuarsa:kdl, madeIn = "Indonesia"}) {
+const pesan = `Jenis produk ini berupa ${produk}, dengan merek ${merek}, yang diproduksi oleh ${produksi}, dan habis pada tanggal ${kdl}, dibuat di ${madeIn}`;
+console.log(pesan)
+}
+printOut(listProduct)
+    </script>
+  </body>
+</html>
