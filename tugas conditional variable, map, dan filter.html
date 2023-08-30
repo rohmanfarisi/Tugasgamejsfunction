@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    
+    <script>
+// //conditional variable
+// const hargaBuku = 40000;
+
+// // const ketentuan = hargaBuku > 50000 ? `mahal` : `murah`;
+// // console.log(ketentuan);
+
+// const harga1 = hargaBuku > 50000 && "mahal";
+// const harga2 = hargaBuku > 50000 || "Beli";
+// console.log(harga2);
+
+//map dan filter
+const murid = [
+    {
+        nama: "Astuti",
+        kelas: "A",
+        umur: 9
+    },
+    {
+        nama: "Asnawi",
+        kelas: "A",
+        umur: 10
+    },
+    {
+        nama: "Bagas",
+        kelas: "B",
+        umur: 12
+    },
+];
+
+// const siswa = murid.map((value)=> value.umur+1);
+// console.log(siswa);
+
+const siswa = murid.filter((value)=> value.umur>10);
+console.log(siswa);
+
+
+    </script>
+  </body>
+</html>
